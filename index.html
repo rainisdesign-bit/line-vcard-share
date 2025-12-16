@@ -1,144 +1,120 @@
-/* ▼▼▼ 名片資料庫 (無註解安全版) ▼▼▼ */
-    const cardDatabase = {
-      "card1": {
-        "type": "flex",
-        "altText": "雨思設計與鐘玲妮名片",
-        "contents": {
-          "type": "carousel",
-          "contents": [
-            {
-              "type": "bubble",
-              "size": "kilo",
-              "hero": {
-                "type": "image",
-                "url": "https://i.ibb.co/Xx8ZNRjq/image.jpg",
-                "size": "full",
-                "aspectRatio": "3:4",
-                "aspectMode": "cover"
-              },
-              "footer": {
-                "type": "box",
-                "layout": "vertical",
-                "spacing": "sm",
-                "backgroundColor": "#000000",
-                "contents": [
-                  {
-                    "type": "button",
-                    "style": "primary",
-                    "color": "#1c60ff",
-                    "height": "sm",
-                    "action": {
-                      "type": "uri",
-                      "label": "雨思設計 | 作品集",
-                      "uri": "https://www.facebook.com/rainisdesign/photos"
-                    }
-                  },
-                  {
-                    "type": "button",
-                    "style": "secondary",
-                    "color": "#ffffff",
-                    "height": "sm",
-                    "action": {
-                      "type": "uri",
-                      "label": "分享給好友",
-                      "uri": "https://liff.line.me/2008686661-zWb1iatn?type=card1"
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "type": "bubble",
-              "size": "kilo",
-              "hero": {
-                "type": "image",
-                "url": "https://i.ibb.co/S7yRRC4n/image.jpg",
-                "size": "full",
-                "aspectRatio": "3:4",
-                "aspectMode": "cover"
-              },
-              "footer": {
-                "type": "box",
-                "layout": "vertical",
-                "spacing": "sm",
-                "backgroundColor": "#d9dadd",
-                "contents": [
-                  {
-                    "type": "button",
-                    "style": "primary",
-                    "color": "#1c60ff",
-                    "height": "sm",
-                    "action": {
-                      "type": "uri",
-                      "label": "加入官方LINE",
-                      "uri": "https://line.me/R/ti/p/@100tgmza"
-                    }
-                  },
-                  {
-                    "type": "button",
-                    "style": "primary",
-                    "color": "#000000",
-                    "height": "sm",
-                    "action": {
-                      "type": "uri",
-                      "label": "加我好友",
-                      "uri": "https://line.me/R/ti/p/@100tgmza"
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      "card2": {
-        "type": "flex",
-        "altText": "雨思設計名片",
-        "contents": {
-          "type": "carousel",
-          "contents": [
-            {
-              "type": "bubble",
-              "size": "kilo",
-              "hero": {
-                "type": "image",
-                "url": "https://i.ibb.co/Xx8ZNRjq/image.jpg",
-                "size": "full",
-                "aspectRatio": "3:4",
-                "aspectMode": "cover"
-              },
-              "footer": {
-                "type": "box",
-                "layout": "vertical",
-                "spacing": "sm",
-                "backgroundColor": "#000000",
-                "contents": [
-                  {
-                    "type": "button",
-                    "style": "primary",
-                    "color": "#1c60ff",
-                    "height": "sm",
-                    "action": {
-                      "type": "uri",
-                      "label": "雨思設計 | 作品集",
-                      "uri": "https://www.facebook.com/rainisdesign/photos"
-                    }
-                  },
-                  {
-                    "type": "button",
-                    "style": "secondary",
-                    "color": "#ffffff",
-                    "height": "sm",
-                    "action": {
-                      "type": "uri",
-                      "label": "分享給好友",
-                      "uri": "https://liff.line.me/2008686661-zWb1iatn?type=card2"
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    };
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Card</title>
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<style>
+body{font-family:sans-serif;padding:20px;text-align:center;background-color:#f0f0f0}
+.loader{border:5px solid #e0e0e0;border-top:5px solid #06C755;border-radius:50%;width:40px;height:40px;animation:spin 1s linear infinite;margin:0 auto 20px auto}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+#status{color:#555;font-size:14px;margin-bottom:20px;white-space:pre-wrap}
+.error{color:red;font-weight:bold}
+.btn{background-color:#06C755;color:white;padding:10px 20px;border:none;border-radius:5px;font-size:16px;display:none;margin:0 auto;cursor:pointer}
+</style>
+</head>
+<body>
+<div id="loader" class="loader"></div>
+<div id="status">Loading...</div>
+<button id="closeBtn" class="btn" onclick="liff.closeWindow()">Close</button>
+<script>
+const MY_LIFF_ID="2008686661-zWb1iatn";
+const cardDatabase={
+"card1":{
+"type":"flex",
+"altText":"雨思設計與鐘玲妮名片",
+"contents":{
+"type":"carousel",
+"contents":[
+{
+"type":"bubble",
+"size":"kilo",
+"hero":{"type":"image","url":"https://i.ibb.co/Xx8ZNRjq/image.jpg","size":"full","aspectRatio":"3:4","aspectMode":"cover"},
+"footer":{
+"type":"box","layout":"vertical","spacing":"sm","backgroundColor":"#000000",
+"contents":[
+{"type":"button","style":"primary","color":"#1c60ff","height":"sm","action":{"type":"uri","label":"雨思設計 | 作品集","uri":"https://www.facebook.com/rainisdesign/photos"}},
+{"type":"button","style":"secondary","color":"#ffffff","height":"sm","action":{"type":"uri","label":"分享給好友","uri":"https://liff.line.me/2008686661-zWb1iatn?type=card1"}}
+]
+}
+},
+{
+"type":"bubble",
+"size":"kilo",
+"hero":{"type":"image","url":"https://i.ibb.co/S7yRRC4n/image.jpg","size":"full","aspectRatio":"3:4","aspectMode":"cover"},
+"footer":{
+"type":"box","layout":"vertical","spacing":"sm","backgroundColor":"#d9dadd",
+"contents":[
+{"type":"button","style":"primary","color":"#1c60ff","height":"sm","action":{"type":"uri","label":"加入官方LINE","uri":"https://line.me/R/ti/p/@100tgmza"}},
+{"type":"button","style":"primary","color":"#000000","height":"sm","action":{"type":"uri","label":"加我好友","uri":"https://line.me/R/ti/p/@100tgmza"}}
+]
+}
+}
+]
+}
+},
+"card2":{
+"type":"flex",
+"altText":"雨思設計名片",
+"contents":{
+"type":"carousel",
+"contents":[
+{
+"type":"bubble",
+"size":"kilo",
+"hero":{"type":"image","url":"https://i.ibb.co/Xx8ZNRjq/image.jpg","size":"full","aspectRatio":"3:4","aspectMode":"cover"},
+"footer":{
+"type":"box","layout":"vertical","spacing":"sm","backgroundColor":"#000000",
+"contents":[
+{"type":"button","style":"primary","color":"#1c60ff","height":"sm","action":{"type":"uri","label":"雨思設計 | 作品集","uri":"https://www.facebook.com/rainisdesign/photos"}},
+{"type":"button","style":"secondary","color":"#ffffff","height":"sm","action":{"type":"uri","label":"分享給好友","uri":"https://liff.line.me/2008686661-zWb1iatn?type=card2"}}
+]
+}
+}
+]
+}
+}
+};
+function log(msg,isError=false){
+const statusEl=document.getElementById('status');
+statusEl.innerText+="\n"+msg;
+if(isError){
+statusEl.className="error";
+document.getElementById('loader').style.display='none';
+document.getElementById('closeBtn').style.display='block';
+}
+}
+async function main(){
+try{
+await liff.init({liffId:MY_LIFF_ID});
+const urlParams=new URLSearchParams(window.location.search);
+const cardType=urlParams.get('type')||'card1';
+const messageToSend=cardDatabase[cardType];
+if(!messageToSend){
+log("Error: Card type not found",true);
+return;
+}
+if(!liff.isLoggedIn()){
+liff.login();
+return;
+}
+if(liff.isApiAvailable('shareTargetPicker')){
+document.getElementById('loader').style.display='none';
+const result=await liff.shareTargetPicker([messageToSend]);
+if(result){
+document.getElementById('status').innerText="Success!";
+document.getElementById('status').style.color="green";
+setTimeout(()=>{liff.closeWindow();},2000);
+}else{
+liff.closeWindow();
+}
+}
+}catch(err){
+log("Error: "+err.message,true);
+}
+}
+main();
+</script>
+</body>
+</html>
