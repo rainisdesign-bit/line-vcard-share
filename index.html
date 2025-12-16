@@ -1,109 +1,154 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>分享名片</title>
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-  <style>
-    body { font-family: sans-serif; padding: 20px; text-align: center; background-color: #f0f0f0; }
-    .loader { border: 5px solid #e0e0e0; border-top: 5px solid #06C755; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 20px auto; }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    #status { color: #555; font-size: 14px; margin-bottom: 20px; white-space: pre-wrap;}
-    .error { color: red; font-weight: bold; }
-    .btn { background-color: #06C755; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; display: none; margin: 0 auto; cursor: pointer;}
-  </style>
-</head>
-<body>
-  <div id="loader" class="loader"></div>
-  <div id="status">正在初始化系統...</div>
-  <button id="closeBtn" class="btn" onclick="liff.closeWindow()">關閉視窗</button>
-
-  <script>
-    // ▼▼▼ 您的 LIFF ID ▼▼▼
-    const MY_LIFF_ID = "2008686661-zWb1iatn";
-    // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
-
-    const flexMessage = {
-      type: "flex",
-      altText: "推薦給您雨思設計的名片",
-      contents: {
-        "type": "bubble",
-        "size": "kilo",
-        "hero": {
-          "type": "image",
-          "url": "https://i.ibb.co/zhTfNzYw/logo.png",
-          "size": "full",
-          "aspectRatio": "3:4",
-          "aspectMode": "cover",
-          "action": { "type": "uri", "uri": "https://www.facebook.com/rainisdesign?locale=zh_TW" }
-        },
-        "body": {
-          "type": "box", "layout": "vertical", "spacing": "sm", "paddingAll": "15px", "backgroundColor": "#2b2b2b",
-          "contents": [
+// ▼▼▼ 名片資料庫 (已根據您的兩組機器人代碼更新) ▼▼▼
+    const cardDatabase = {
+      // 第一組：雙張名片 (雨思設計 + 鐘玲妮)
+      // 對應網址參數: ?type=card1
+      "card1": {
+        type: "flex",
+        altText: "雨思設計與鐘玲妮名片",
+        contents: {
+          type: "carousel",
+          contents: [
+            // 第一張卡片 (黑底)
             {
-              "type": "box", "layout": "vertical", "spacing": "sm",
-              "contents": [
-                { "type": "button", "action": { "type": "uri", "label": "瀏覽作品", "uri": "https://www.facebook.com/rainisdesign/photos/?ref=page_internal" }, "style": "primary", "color": "#1C60FF", "height": "sm" },
-                { "type": "button", "action": { "type": "uri", "label": "加我好友", "uri": "https://line.me/R/ti/p/ZMJfrA75lJ" }, "style": "secondary", "height": "sm", "color": "#ffffff" }
-              ]
+              type: "bubble",
+              size: "kilo",
+              hero: {
+                type: "image",
+                url: "https://i.ibb.co/Xx8ZNRjq/image.jpg",
+                size: "full",
+                aspectRatio": "3:4",
+                aspectMode": "cover"
+              },
+              footer: {
+                type: "box",
+                layout": "vertical",
+                spacing": "sm",
+                backgroundColor": "#000000",
+                contents": [
+                  {
+                    type: "button",
+                    style": "primary",
+                    color": "#1c60ff",
+                    height": "sm",
+                    action": {
+                      type": "uri",
+                      label": "雨思設計 | 作品集",
+                      uri": "https://www.facebook.com/rainisdesign/photos"
+                    }
+                  },
+                  {
+                    type: "button",
+                    style": "secondary",
+                    color": "#ffffff",
+                    height": "sm",
+                    action": {
+                      type": "uri",
+                      label": "分享給好友",
+                      // 注意：這裡建議加上 ?type=card1 讓收到的人分享出去也是同一張
+                      uri": "https://liff.line.me/2008686661-zWb1iatn?type=card1" 
+                    }
+                  }
+                ]
+              }
+            },
+            // 第二張卡片 (灰底)
+            {
+              type: "bubble",
+              size: "kilo",
+              hero: {
+                type: "image",
+                url: "https://i.ibb.co/S7yRRC4n/image.jpg",
+                size: "full",
+                aspectRatio": "3:4",
+                aspectMode": "cover"
+              },
+              footer: {
+                type: "box",
+                layout": "vertical",
+                spacing": "sm",
+                backgroundColor": "#d9dadd",
+                contents": [
+                  {
+                    type: "button",
+                    style": "primary",
+                    color": "#1c60ff",
+                    height": "sm",
+                    action": {
+                      type": "uri",
+                      label": "加入官方LINE",
+                      uri": "https://line.me/R/ti/p/@100tgmza"
+                    }
+                  },
+                  {
+                    type: "button",
+                    style": "primary",
+                    color": "#000000",
+                    height": "sm",
+                    action": {
+                      type": "uri",
+                      label": "加我好友",
+                      uri": "https://line.me/R/ti/p/@100tgmza"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+
+      // 第二組：單張名片 (只有雨思設計)
+      // 對應網址參數: ?type=card2
+      "card2": {
+        type: "flex",
+        altText: "雨思設計名片",
+        contents: {
+          type: "carousel",
+          contents: [
+            // 只有一張黑底卡片
+            {
+              type: "bubble",
+              size: "kilo",
+              hero: {
+                type: "image",
+                url: "https://i.ibb.co/Xx8ZNRjq/image.jpg",
+                size: "full",
+                aspectRatio": "3:4",
+                aspectMode": "cover"
+              },
+              footer: {
+                type: "box",
+                layout": "vertical",
+                spacing": "sm",
+                backgroundColor": "#000000",
+                contents": [
+                  {
+                    type: "button",
+                    style": "primary",
+                    color": "#1c60ff",
+                    height": "sm",
+                    action": {
+                      type": "uri",
+                      label": "雨思設計 | 作品集",
+                      uri": "https://www.facebook.com/rainisdesign/photos"
+                    }
+                  },
+                  {
+                    type: "button",
+                    style": "secondary",
+                    color": "#ffffff",
+                    height": "sm",
+                    action": {
+                      type": "uri",
+                      label": "分享給好友",
+                      // 注意：這裡建議加上 ?type=card2 讓收到的人分享出去也是同一張
+                      uri": "https://liff.line.me/2008686661-zWb1iatn?type=card2"
+                    }
+                  }
+                ]
+              }
             }
           ]
         }
       }
     };
-
-    function log(msg, isError = false) {
-      const statusEl = document.getElementById('status');
-      statusEl.innerText += "\n" + msg;
-      if (isError) {
-        statusEl.className = "error";
-        document.getElementById('loader').style.display = 'none';
-        document.getElementById('closeBtn').style.display = 'block';
-      }
-    }
-
-    async function main() {
-      try {
-        log("1. 開始載入 LIFF SDK...");
-        await liff.init({ liffId: MY_LIFF_ID });
-        log("2. LIFF 初始化成功");
-
-        // 檢查是否在 LINE App 內部
-        if (!liff.isInClient()) {
-          log("⚠️ 偵測到外部瀏覽器！\n請回到 LINE 聊天室重新點擊按鈕，\n此功能無法在 Safari/Chrome 使用。", true);
-          return;
-        }
-
-        if (!liff.isLoggedIn()) {
-          log("3. 尚未登入，轉向登入頁面...");
-          liff.login();
-          return;
-        }
-
-        log("4. 已登入，檢查分享權限...");
-        if (liff.isApiAvailable('shareTargetPicker')) {
-          log("5. 啟動分享選單...");
-          document.getElementById('loader').style.display = 'none';
-          
-          const result = await liff.shareTargetPicker([flexMessage]);
-          if (result) {
-            document.getElementById('status').innerText = "✅ 分享成功！";
-            document.getElementById('status').style.color = "green";
-            document.getElementById('status').style.fontSize = "20px";
-            setTimeout(() => { liff.closeWindow(); }, 2000);
-          } else {
-            log("使用者取消分享", true);
-            liff.closeWindow();
-          }
-        } else {
-          log("❌ 此裝置或 LINE 版本不支援分享功能 (shareTargetPicker API 不可用)", true);
-        }
-      } catch (err) {
-        log("❌ 發生錯誤：" + err.message + "\n代碼：" + err.code, true);
-      }
-    }
-    main();
-  </script>
-</body>
-</html>
