@@ -23,97 +23,101 @@ body{font-family:sans-serif;padding:20px;text-align:center;background-color:#f0f
 const MY_LIFF_ID="2008686661-zWb1iatn";
 
 const cardDatabase={
-// 🟥 機器人路徑：雨思名片宣傳 (三張輪播)
+
+// 🟦 card1: 對應 「雨思設計電子名片」 (原本的 card2 單張版)
 "card1":{
-"type":"flex",
-"altText":"雨思名片宣傳",
-"contents":{
-"type":"carousel",
-"contents":[
-{
-"type":"bubble",
-"size":"kilo",
-"hero":{"type":"image","url":"https://i.ibb.co/Xx8ZNRjq/image.jpg","size":"full","aspectRatio":"3:4","aspectMode":"cover"},
-"footer":{
-"type":"box","layout":"vertical","spacing":"sm","backgroundColor":"#000000",
-"contents":[
-{"type":"button","style":"primary","color":"#1c60ff","height":"sm","action":{"type":"uri","label":"雨思設計 | 作品集","uri":"https://www.facebook.com/rainisdesign"}},
-{"type":"button","style":"secondary","color":"#ffffff","height":"sm","action":{"type":"uri","label":"分享給好友","uri":"https://liff.line.me/2008686661-zWb1iatn?type=card1"}}
-]
-}
-},
-{
-"type":"bubble",
-"size":"kilo",
-"hero":{"type":"image","url":"https://i.ibb.co/0pT2YFvf/image.png","size":"full","aspectRatio":"3:4","aspectMode":"cover"},
-"footer":{
-"type":"box","layout":"vertical","spacing":"sm","backgroundColor":"#021532",
-"contents":[
-{"type":"button","style":"primary","color":"#1c60ff","height":"sm","action":{"type":"uri","label":"LINE電子名片介紹","uri":"https://rainistech.com/"}},
-{"type":"button","style":"secondary","color":"#009cff","height":"sm","action":{"type":"uri","label":"價目表","uri":"https://rainistech.com/"}}
-]
-}
-},
-{
-"type":"bubble",
-"size":"kilo",
-"hero":{"type":"image","url":"https://i.ibb.co/qYsMwf4W/image.jpg","size":"full","aspectRatio":"3:4","aspectMode":"cover"},
-"footer":{
-"type":"box","layout":"vertical","spacing":"sm","backgroundColor":"#d9dadd",
-"contents":[
-{"type":"button","style":"primary","color":"#1c60ff","height":"sm","action":{"type":"uri","label":"加入官方LINE","uri":"https://line.me/R/ti/p/@100tgmza"}},
-{"type":"button","style":"primary","color":"#000000","height":"sm","action":{"type":"uri","label":"加我好友","uri":"https://line.me/ti/p/NrZdYYSlYJ"}}
-]
-}
-}
-]
-}
+    "type":"flex",
+    "altText":"雨思設計名片",
+    "contents":{
+    "type":"carousel",
+    "contents":[
+    {
+    "type":"bubble",
+    "size":"kilo",
+    "hero":{"type":"image","url":"https://i.ibb.co/Xx8ZNRjq/image.jpg","size":"full","aspectRatio":"3:4","aspectMode":"cover"},
+    "footer":{
+    "type":"box","layout":"vertical","spacing":"sm","backgroundColor":"#000000",
+    "contents":[
+    {"type":"button","style":"primary","color":"#1c60ff","height":"sm","action":{"type":"uri","label":"雨思設計 | 作品集","uri":"https://www.facebook.com/rainisdesign/photos"}},
+    // ⚠️ 注意：這裡的連結參數已改為 type=card1
+    {"type":"button","style":"secondary","color":"#ffffff","height":"sm","action":{"type":"uri","label":"分享給好友","uri":"https://liff.line.me/2008686661-zWb1iatn?type=card1"}}
+    ]
+    }
+    }
+    ]
+    }
 },
 
-// 🟦 機器人路徑：雨思設計電子名片 (單張/簡約版)
+// 🟨 card2: 對應 「雨思玲妮」 (個人版)
 "card2":{
-"type":"flex",
-"altText":"雨思設計名片",
-"contents":{
-"type":"carousel",
-"contents":[
-{
-"type":"bubble",
-"size":"kilo",
-"hero":{"type":"image","url":"https://i.ibb.co/Xx8ZNRjq/image.jpg","size":"full","aspectRatio":"3:4","aspectMode":"cover"},
-"footer":{
-"type":"box","layout":"vertical","spacing":"sm","backgroundColor":"#000000",
-"contents":[
-{"type":"button","style":"primary","color":"#1c60ff","height":"sm","action":{"type":"uri","label":"雨思設計 | 作品集","uri":"https://www.facebook.com/rainisdesign/photos"}},
-{"type":"button","style":"secondary","color":"#ffffff","height":"sm","action":{"type":"uri","label":"分享給好友","uri":"https://liff.line.me/2008686661-zWb1iatn?type=card2"}}
-]
-}
-}
-]
-}
+    "type":"flex",
+    "altText":"雨思玲妮名片",
+    "contents":{
+    "type":"carousel",
+    "contents":[
+    {
+    "type":"bubble",
+    "size":"kilo",
+    "hero":{"type":"image","url":"https://i.ibb.co/Xx8ZNRjq/image.jpg","size":"full","aspectRatio":"3:4","aspectMode":"cover"},
+    "footer":{
+    "type":"box","layout":"vertical","spacing":"sm","backgroundColor":"#000000",
+    "contents":[
+    {"type":"button","style":"primary","color":"#1c60ff","height":"sm","action":{"type":"uri","label":"瀏覽個人IG","uri":"https://instagram.com"}},
+    // ⚠️ 注意：這裡的連結參數已改為 type=card2
+    {"type":"button","style":"secondary","color":"#ffffff","height":"sm","action":{"type":"uri","label":"分享給好友","uri":"https://liff.line.me/2008686661-zWb1iatn?type=card2"}}
+    ]
+    }
+    }
+    ]
+    }
 },
 
-// 🟨 機器人路徑：雨思玲妮 (個人版 - 新增位置)
+// 🟥 card3: 對應 「雨思名片宣傳」 (原本的 card1 三張輪播版)
 "card3":{
-"type":"flex",
-"altText":"雨思玲妮名片",
-"contents":{
-"type":"carousel",
-"contents":[
-{
-"type":"bubble",
-"size":"kilo",
-"hero":{"type":"image","url":"https://i.ibb.co/Xx8ZNRjq/image.jpg","size":"full","aspectRatio":"3:4","aspectMode":"cover"},
-"footer":{
-"type":"box","layout":"vertical","spacing":"sm","backgroundColor":"#000000",
-"contents":[
-{"type":"button","style":"primary","color":"#1c60ff","height":"sm","action":{"type":"uri","label":"瀏覽個人IG","uri":"https://instagram.com"}},
-{"type":"button","style":"secondary","color":"#ffffff","height":"sm","action":{"type":"uri","label":"分享給好友","uri":"https://liff.line.me/2008686661-zWb1iatn?type=card3"}}
-]
-}
-}
-]
-}
+    "type":"flex",
+    "altText":"雨思名片宣傳",
+    "contents":{
+    "type":"carousel",
+    "contents":[
+    {
+    "type":"bubble",
+    "size":"kilo",
+    "hero":{"type":"image","url":"https://i.ibb.co/Xx8ZNRjq/image.jpg","size":"full","aspectRatio":"3:4","aspectMode":"cover"},
+    "footer":{
+    "type":"box","layout":"vertical","spacing":"sm","backgroundColor":"#000000",
+    "contents":[
+    {"type":"button","style":"primary","color":"#1c60ff","height":"sm","action":{"type":"uri","label":"雨思設計 | 作品集","uri":"https://www.facebook.com/rainisdesign"}},
+    // ⚠️ 注意：這裡的連結參數已改為 type=card3
+    {"type":"button","style":"secondary","color":"#ffffff","height":"sm","action":{"type":"uri","label":"分享給好友","uri":"https://liff.line.me/2008686661-zWb1iatn?type=card3"}}
+    ]
+    }
+    },
+    {
+    "type":"bubble",
+    "size":"kilo",
+    "hero":{"type":"image","url":"https://i.ibb.co/0pT2YFvf/image.png","size":"full","aspectRatio":"3:4","aspectMode":"cover"},
+    "footer":{
+    "type":"box","layout":"vertical","spacing":"sm","backgroundColor":"#021532",
+    "contents":[
+    {"type":"button","style":"primary","color":"#1c60ff","height":"sm","action":{"type":"uri","label":"LINE電子名片介紹","uri":"https://rainistech.com/"}},
+    {"type":"button","style":"secondary","color":"#009cff","height":"sm","action":{"type":"uri","label":"價目表","uri":"https://rainistech.com/"}}
+    ]
+    }
+    },
+    {
+    "type":"bubble",
+    "size":"kilo",
+    "hero":{"type":"image","url":"https://i.ibb.co/qYsMwf4W/image.jpg","size":"full","aspectRatio":"3:4","aspectMode":"cover"},
+    "footer":{
+    "type":"box","layout":"vertical","spacing":"sm","backgroundColor":"#d9dadd",
+    "contents":[
+    {"type":"button","style":"primary","color":"#1c60ff","height":"sm","action":{"type":"uri","label":"加入官方LINE","uri":"https://line.me/R/ti/p/@100tgmza"}},
+    {"type":"button","style":"primary","color":"#000000","height":"sm","action":{"type":"uri","label":"加我好友","uri":"https://line.me/ti/p/NrZdYYSlYJ"}}
+    ]
+    }
+    }
+    ]
+    }
 }
 };
 
