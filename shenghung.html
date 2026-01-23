@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勝紘國際 | 名片分享</title>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #f4f4f4; }
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #1DB446; border-radius: 50%; width: 40px; height: 40px; animation: spin 2s linear infinite; margin: 0 auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="loader"></div>
+    <p id="status">正在開啟勝紘國際分享視窗...</p>
+
+    <script>
+        // 使用你新申請的 LIFF ID
+        const MY_LIFF_ID = "2008955973-1t2krjwl"; 
+
+        const message = {
+            "type": "flex",
+            "altText": "勝紘國際黃昭穎-電子名片",
+            "contents": {
+                "type": "carousel",
+                "contents": [
+                    {
+                        "type": "bubble",
+                        "size": "kilo",
+                        "hero": { "type": "image", "url": "https://i.ibb.co/7xDLkKxN/image.jpg", "size": "full", "aspectRatio": "3:4", "aspectMode": "cover" },
+                        "footer": {
+                            "type": "box", "layout": "vertical", "spacing": "sm", "backgroundColor": "#1c1c1f",
+                            "contents": [
+                                { "type": "button", "style": "primary", "color": "#4b4b4b", "height": "sm", "action": { "type": "uri", "label": "鑑賞 | 極致門款", "uri": "https://drive.google.com/file/d/1RQC_a5m8LapbOIiTb9uT47h9P9qoVxIR/view?usp=drive_link" } },
+                                { "type": "button", "style": "secondary", "color": "#b4b4b4", "height": "sm", "action": { "type": "uri", "label": "官方網站", "uri": "http://www.oakforest.com.tw/" } }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "bubble",
+                        "size": "kilo",
+                        "hero": { "type": "image", "url": "https://i.ibb.co/J6k7NWP/image.jpg", "size": "full", "aspectRatio": "3:4", "aspectMode": "cover" },
+                        "footer": {
+                            "type": "box", "layout": "vertical", "spacing": "sm", "backgroundColor": "#767676",
+                            "contents": [
+                                { "type": "button", "style": "primary", "color": "#b4b4b4", "height": "sm", "action": { "type": "uri", "label": "預約諮詢", "uri": "https://line.me/R/ti/p/@100tgmza" } },
+                                { "type": "button", "style": "primary", "color": "#1c1c1f", "height": "sm", "action": { "type": "uri", "label": "分享給好友", "uri": "https://liff.line.me/" + MY_LIFF_ID } }
+                            ]
+                        }
+                    }
+                ]
+            }
+        };
+
+        async function main() {
+            try {
+                await liff.init({ liffId: MY_LIFF_ID });
+                if (!liff.isLoggedIn()) {
+                    liff.login();
+                    return;
+                }
+                // 執行分享功能
+                const result = await liff.shareTargetPicker([message]);
+                liff.closeWindow();
+            } catch (err) {
+                document.getElementById('status').innerText = "錯誤: " + err.message;
+            }
+        }
+        main();
+    </script>
+</body>
+</html>
