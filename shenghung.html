@@ -16,7 +16,7 @@
     <p id="status">正在開啟勝紘國際分享視窗...</p>
 
     <script>
-        // 使用你新申請的 LIFF ID
+        // 正確的 LIFF ID，結尾是小寫的 l
         const MY_LIFF_ID = "2008955973-1t2krjwl"; 
 
         const message = {
@@ -55,16 +55,22 @@
 
         async function main() {
             try {
+                // 初始化 LIFF
                 await liff.init({ liffId: MY_LIFF_ID });
+                
+                // 檢查是否登入
                 if (!liff.isLoggedIn()) {
                     liff.login();
                     return;
                 }
-                // 執行分享功能
+                
+                // 觸發分享功能
                 const result = await liff.shareTargetPicker([message]);
+                
+                // 不論分享成功與否，完成動作後自動關閉視窗
                 liff.closeWindow();
             } catch (err) {
-                document.getElementById('status').innerText = "錯誤: " + err.message;
+                document.getElementById('status').innerText = "啟動失敗，請檢查網路或 ID 設定: " + err.message;
             }
         }
         main();
