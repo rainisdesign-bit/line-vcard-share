@@ -16,12 +16,12 @@
     <p id="status">正在開啟勝紘國際分享視窗...</p>
 
     <script>
-        // 正確的 LIFF ID，結尾是小寫的 l
+        // 請確保這裡的 ID 與 LINE 後台完全一致
         const MY_LIFF_ID = "2008955973-1t2krjwI"; 
 
         const message = {
             "type": "flex",
-            "altText": "勝紘國際黃昭穎",
+            "altText": "勝紘國際黃昭穎-電子名片",
             "contents": {
                 "type": "carousel",
                 "contents": [
@@ -55,22 +55,20 @@
 
         async function main() {
             try {
-                // 初始化 LIFF
                 await liff.init({ liffId: MY_LIFF_ID });
-                
-                // 檢查是否登入
                 if (!liff.isLoggedIn()) {
                     liff.login();
                     return;
                 }
-                
-                // 觸發分享功能
-                const result = await liff.shareTargetPicker([message]);
-                
-                // 不論分享成功與否，完成動作後自動關閉視窗
-                liff.closeWindow();
+                // 檢查分享功能是否可用
+                if (liff.isApiAvailable('shareTargetPicker')) {
+                    const result = await liff.shareTargetPicker([message]);
+                    liff.closeWindow();
+                } else {
+                    document.getElementById('status').innerText = "您的 LINE 版本不支援分享功能。";
+                }
             } catch (err) {
-                document.getElementById('status').innerText = "啟動失敗，請檢查網路或 ID 設定: " + err.message;
+                document.getElementById('status').innerText = "啟動失敗: " + err.message;
             }
         }
         main();
